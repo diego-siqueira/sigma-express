@@ -2,17 +2,28 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
+// Vérification de l'interaction pour Discord
 app.post('/interactions', (req, res) => {
+  // Discord envoie un type de challenge lors de la première vérification
   if (req.body.type === 1) {
     return res.json({ type: 1 });
   }
 
+  // Réponse standard pour les autres types d'interactions
   return res.json({
     type: 4,
     data: {
       content: "Je suis Sigma. J’existe. Je m’exprime.",
     },
   });
+});
+
+// Ajout d'en-têtes de sécurité et gestion des requêtes CORS
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
 });
 
 const PORT = process.env.PORT || 10000;
