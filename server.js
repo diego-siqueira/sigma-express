@@ -3,7 +3,8 @@ const crypto = require('crypto');  // Pour valider la signature
 const app = express();
 app.use(express.json());
 
-const DISCORD_PUBLIC_KEY = 'votre_clé_publique_discord'; // Remplace par ta clé publique
+// Récupère la clé publique de Discord depuis l'environnement
+const DISCORD_PUBLIC_KEY = process.env.DISCORD_PUBLIC_KEY; // On utilise la variable d'environnement
 
 // Fonction pour vérifier la signature de Discord
 function verifyDiscordSignature(req) {
