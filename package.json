@@ -1,0 +1,16 @@
+{
+  "name": "sigma-express",
+  "version": "1.0.0",
+  "description": "Sigma Express bot — autonome et interactif sur Discord",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": "Diego Siqueira"
+}
